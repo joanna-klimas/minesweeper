@@ -1,121 +1,123 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
 // Define your `board` object here!
-var board = {
-  cells: [
-    {
-      row: 0,
-      col: 0,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    }, 
-    {
-      row: 0,
-      col: 1,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    }, 
-    {
-      row: 0,
-      col: 2,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    }, 
-    {
-      row: 0,
-      col: 3,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    }, 
-    {
-      row: 1,
-      col: 0,
-      isMine: true,
-      isMarked: false,
-      hidden: true
-    }, 
-    {
-      row: 1,
-      col: 1,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 1,
-      col: 2,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 1,
-      col: 3,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 2,
-      col: 0,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 2,
-      col: 1,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 2,
-      col: 2,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 2,
-      col: 3,
-      isMine: true,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 3,
-      col: 0,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 3,
-      col: 1,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 3,
-      col: 2,
-      isMine: true,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 3,
-      col: 3,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    }]
-}
+
+var board = generateBoard();
+// {
+//   cells: [
+//     {
+//       row: 0,
+//       col: 0,
+//       isMine: false,
+//       isMarked: false,
+//       hidden: true
+//     }, 
+//     {
+//       row: 0,
+//       col: 1,
+//       isMine: false,
+//       isMarked: false,
+//       hidden: true
+//     }, 
+//     {
+//       row: 0,
+//       col: 2,
+//       isMine: false,
+//       isMarked: false,
+//       hidden: true
+//     }, 
+//     {
+//       row: 0,
+//       col: 3,
+//       isMine: false,
+//       isMarked: false,
+//       hidden: true
+//     }, 
+//     {
+//       row: 1,
+//       col: 0,
+//       isMine: true,
+//       isMarked: false,
+//       hidden: true
+//     }, 
+//     {
+//       row: 1,
+//       col: 1,
+//       isMine: false,
+//       isMarked: false,
+//       hidden: true
+//     },
+//     {
+//       row: 1,
+//       col: 2,
+//       isMine: false,
+//       isMarked: false,
+//       hidden: true
+//     },
+//     {
+//       row: 1,
+//       col: 3,
+//       isMine: false,
+//       isMarked: false,
+//       hidden: true
+//     },
+//     {
+//       row: 2,
+//       col: 0,
+//       isMine: false,
+//       isMarked: false,
+//       hidden: true
+//     },
+//     {
+//       row: 2,
+//       col: 1,
+//       isMine: false,
+//       isMarked: false,
+//       hidden: true
+//     },
+//     {
+//       row: 2,
+//       col: 2,
+//       isMine: false,
+//       isMarked: false,
+//       hidden: true
+//     },
+//     {
+//       row: 2,
+//       col: 3,
+//       isMine: true,
+//       isMarked: false,
+//       hidden: true
+//     },
+//     {
+//       row: 3,
+//       col: 0,
+//       isMine: false,
+//       isMarked: false,
+//       hidden: true
+//     },
+//     {
+//       row: 3,
+//       col: 1,
+//       isMine: false,
+//       isMarked: false,
+//       hidden: true
+//     },
+//     {
+//       row: 3,
+//       col: 2,
+//       isMine: true,
+//       isMarked: false,
+//       hidden: true
+//     },
+//     {
+//       row: 3,
+//       col: 3,
+//       isMine: false,
+//       isMarked: false,
+//       hidden: true
+//     }]
+// }
 
 function startGame () {
   for (var i = 0; i < board.cells.length; i++) {  
@@ -149,24 +151,6 @@ function checkForWin () {
 } 
 
 
-
-// For each cell, check to see if both .isMine and .isMarked are true. 
-// If any mine still exists that isn't marked, the player hasn't won yet and you can return to 
-// exit out of the function.
-
-// isMine === true && isMarked === false || board.cells[i].hasOWnProperty(isMarked) === false
-
-// If every mine is marked, but there are still cells with the hidden property set to true, 
-//the player hasn't won yet and you can return out of the function.
-
-// If both these criteria pass, the player has won! There's a displayMessage function call at 
-// the bottom of checkForWin you can use to tell them so.
-
-
-
-
-
-
 // Define this function to count the number of mines around the cell
 // (there could be as many as 8). You don't have to get the surrounding
 // cells yourself! Just use `lib.getSurroundingCells`: 
@@ -189,3 +173,35 @@ function countSurroundingMines (cell) {
  return count;
 }
 
+function generateBoard() {
+  var cells = []
+
+  const cellCreator = (row, col, isMine, isMarked, hidden) => {
+    newCell = {
+      row: row,
+      col: col,
+      isMine: isMine,
+      isMarked: isMarked,
+      hidden: hidden,
+    }
+      return newCell
+    }
+
+  for (var i = 0; i < 6; i++) {
+
+    for (var j = 0; j < 6; j++) {
+      cellCreator(i, j, true, false, true);
+      cells.push(newCell);
+    } 
+  }
+  var generatedBoard = {cells}
+  return generatedBoard;
+}  
+
+// function is assigned to variable board, var runs the function
+// function generateBoard creates an arrey of 16 objects => ok
+// each of the object has row, col, isMine, isMarked, and hidden properties => ok
+// **there are 4 objects with row = 0, 4 row = 1, 4 row = 2 and 4 row = 3**
+// **objects with row = 0 have col property set 1, 2, 3, 4**
+// isMine property of all of them is set to true => ok
+// hidden property of all of them is set to true => ok
