@@ -28,11 +28,19 @@ function checkForWin () {
     if (board.cells[i].isMine === true && board.cells[i].isMarked === false) {
     return;
     }
-  }  
-//  generateBoard();
+  } 
+
   victorySound.play();
   lib.displayMessage('Whoop whoop!')
 } 
+
+
+var restartGameButton = document.getElementById("restart");
+restartGameButton.addEventListener("click", restartTheGame);
+
+function restartTheGame() {
+  location.reload();
+}
 
 
 // Define this function to count the number of mines around the cell
