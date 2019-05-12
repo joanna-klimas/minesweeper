@@ -31,7 +31,7 @@ function checkForWin () {
   }  
 //  generateBoard();
   victorySound.play();
-  lib.displayMessage('You win!')
+  lib.displayMessage('Whoop whoop!')
 } 
 
 
@@ -73,9 +73,9 @@ function generateBoard() {
       return newCell
     }
 
-  for (var i = 0; i < 2; i++) {
-    for (var j = 0; j < 2; j++) {
-      cellCreator(i, j, (Math.random() < 0.1), false, true);
+  for (var i = 0; i < 6; i++) {
+    for (var j = 0; j < 6; j++) {
+      cellCreator(i, j, (Math.random() < 0.2), false, true);
       cells.push(newCell);
     } 
   }
