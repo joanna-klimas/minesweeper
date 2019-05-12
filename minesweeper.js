@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', startGame)
 // Define your `board` object here!
 
 var board = generateBoard();
+var victorySound = new Audio("gameWin.mp3");
 
 function startGame () {
   for (var i = 0; i < board.cells.length; i++) {  
@@ -28,6 +29,8 @@ function checkForWin () {
     return;
     }
   }  
+//  generateBoard();
+  victorySound.play();
   lib.displayMessage('You win!')
 } 
 
@@ -70,14 +73,30 @@ function generateBoard() {
       return newCell
     }
 
-  for (var i = 0; i < 6; i++) {
-
-    for (var j = 0; j < 6; j++) {
-      cellCreator(i, j, (Math.random() < 0.3), false, true);
+  for (var i = 0; i < 2; i++) {
+    for (var j = 0; j < 2; j++) {
+      cellCreator(i, j, (Math.random() < 0.1), false, true);
       cells.push(newCell);
     } 
   }
+
   var generatedBoard = {cells}
   return generatedBoard;
 }  
+
+// Stretch Goal 2 - reset the board!
+// 
+
+// function resetTheBoard() {
+//   if (checkForWin) {
+//     startGame();
+//   }
+// }
+
+// 
+// function resetTheBoard checks what function checkForWin returns. Is it a message "you won" it executes the function
+// it calls startGame function? (in next step it creates a button that once clicked calls startGame function)
+// 
+// After a win or loss, give players a chance to try again by resetting the board to its default state. 
+// You'll need to put classes back the way they were at the start, and re-initialize the global board object.
 
